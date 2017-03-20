@@ -1,0 +1,605 @@
+"""""""""""""""""""""""""
+" vimrc of Xue-Jian Jiang
+"""""""""""""""""""""""""
+
+""vundle
+set nocompatible              " be iMproved, required
+filetype off                  " required
+syntax on
+
+let g:solarized_termcolors=256
+colorscheme solarized
+if has('gui_running')
+        set background=light
+    else
+        set background=dark
+    endif
+"colorscheme ir_black
+
+" UnBundle 'gmarik/vundle'
+" UnBundle 'MarcWeber/vim-addon-mw-utils'
+" UnBundle 'tomtom/tlib_vim'
+" UnBundle 'scrooloose/nerdtree'
+" UnBundle 'altercation/vim-colors-solarized'
+" UnBundle 'spf13/vim-colors'
+" UnBundle 'tpope/vim-surround'
+" UnBundle 'tpope/vim-repeat'
+" UnBundle 'rhysd/conflict-marker.vim'
+" UnBundle 'jiangmiao/auto-pairs'
+" UnBundle 'ctrlpvim/ctrlp.vim'
+" UnBundle 'tacahiroy/ctrlp-funky'
+" UnBundle 'terryma/vim-multiple-cursors'
+" UnBundle 'vim-scripts/sessionman.vim'
+" UnBundle 'matchit.zip'
+" UnBundle 'vim-airline/vim-airline'
+" UnBundle 'vim-airline/vim-airline-themes'
+" UnBundle 'powerline/fonts'
+" UnBundle 'bling/vim-bufferline'
+" UnBundle 'easymotion/vim-easymotion'
+" UnBundle 'jistr/vim-nerdtree-tabs'
+" UnBundle 'flazz/vim-colorschemes'
+" UnBundle 'mbbill/undotree'
+" UnBundle 'nathanaelkane/vim-indent-guides'
+" UnBundle 'vim-scripts/restore_view.vim'
+" UnBundle 'mhinz/vim-signify'
+" UnBundle 'tpope/vim-abolish.git'
+" UnBundle 'osyo-manga/vim-over'
+" UnBundle 'kana/vim-textobj-user'
+" UnBundle 'kana/vim-textobj-indent'
+" UnBundle 'gcmt/wildfire.vim'
+" UnBundle 'reedes/vim-litecorrect'
+" UnBundle 'reedes/vim-textobj-sentence'
+" UnBundle 'reedes/vim-textobj-quote'
+" UnBundle 'reedes/vim-wordy'
+" UnBundle 'scrooloose/syntastic'
+" UnBundle 'tpope/vim-fugitive'
+" UnBundle 'mattn/webapi-vim'
+" UnBundle 'mattn/gist-vim'
+" UnBundle 'scrooloose/nerdcommenter'
+" UnBundle 'tpope/vim-commentary'
+" UnBundle 'godlygeek/tabular'
+" UnBundle 'luochen1990/rainbow'
+ UnBundle 'majutsushi/tagbar'
+" UnBundle 'Shougo/neocomplete.vim.git'
+" UnBundle 'Shougo/neosnippet'
+" UnBundle 'Shougo/neosnippet-snippets'
+" UnBundle 'honza/vim-snippets'
+ UnBundle 'spf13/PIV'
+ UnBundle 'arnaud-lb/vim-php-namespace'
+" UnBundle 'beyondwords/vim-twig'
+" UnBundle 'klen/python-mode'
+" UnBundle 'yssource/python.vim'
+" UnBundle 'python_match.vim'
+" UnBundle 'pythoncomplete'
+" UnBundle 'elzr/vim-json'
+" UnBundle 'groenewege/vim-less'
+" UnBundle 'pangloss/vim-javascript'
+" UnBundle 'briancollins/vim-jst'
+" UnBundle 'kchmck/vim-coffee-script'
+" UnBundle 'amirh/HTML-AutoCloseTag'
+" UnBundle 'hail2u/vim-css3-syntax'
+" UnBundle 'gorodinskiy/vim-coloresque'
+" UnBundle 'tpope/vim-haml'
+" UnBundle 'mattn/emmet-vim'
+" UnBundle 'tpope/vim-rails'
+" UnBundle 'rust-lang/rust.vim'
+" UnBundle 'tpope/vim-markdown'
+" UnBundle 'spf13/vim-preview'
+" UnBundle 'tpope/vim-cucumber'
+" UnBundle 'cespare/vim-toml'
+" UnBundle 'quentindecock/vim-cucumber-align-pipes'
+" UnBundle 'saltstack/salt-vim'
+" UnBundle 'vimwiki'
+
+
+"
+"" set the runtime path to include Vundle and initialize
+"set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#begin()
+"" alternatively, pass a path where Vundle should install plugins
+""call vundle#begin('~/some/path/here')
+"
+"" let Vundle manage Vundle, required
+"Plugin 'VundleVim/Vundle.vim'
+"
+""提供及时预览的功能"
+"Plugin 'iamcco/markdown-preview.vim'
+"
+""提供markdown语法高亮功能"                                        
+"Plugin 'godlygeek/tabular'
+"Plugin 'plasticboy/vim-markdown'
+"
+""提供pandoc语法高亮功能"
+"Plugin 'vim-pandoc/vim-pandoc'
+"Plugin 'vim-pandoc/vim-pandoc-syntax' 
+"
+"
+"" All of your Plugins must be added before the following line
+"call vundle#end()            " required
+"filetype plugin indent on    " required
+"
+""配置markdown-preview.vim"
+"let g_mkdp_path_to_chrome = "open /Applications/Google\ Chrome.app"
+""path to the chrome or the command to open chrome(or other modern browsers)"
+"let g:mkdp_auto_start = 1 
+""set to 1, the vim will open the preview window once enter the markdown buffer"
+"
+"let g:mkdp_auto_open = 1
+""set to 1, the vim will auto open preview window when you edit the markdown file"
+"let g:mkdp_auto_close = 0
+""set to 1, the vim will auto close current preview window when change from markdown buffer to another buffer"
+"let g:mkdp_refresh_slow = 1
+"" set to 1, the vim will just refresh markdown when save the buffer or leave
+"" from insert mode, default 0 is auto refresh markdown as you edit or move the cursor"
+"
+"" 配置vim-markdown"
+"" 支持yaml语法"
+"let g:vim_markdown_frontmatter=1
+"" 禁用自动折叠"
+"let g:vim_markdown_folding_disabled=1
+""
+"
+"" ===========================
+
+" 使用鼠标映射
+let g:vimwiki_use_mouse = 1
+"
+"  不要将驼峰式词组作为 Wiki 词条
+let g:vimwiki_camel_case = 0
+"
+let g:vimwiki_list = [{
+ \ 'path': '~/baiduyun/vimwiki',
+ \ 'template_path': '~/.vim/bundle/vimwiki/autoload/vimwiki/',
+ \ 'template_default': 'default',
+ \ 'template_ext': '.tpl', 
+ \ 'path_html': '~/baiduyun/vimwiki/vimwiki_html/',
+ \ 'nested_syntaxes': {'python': 'python', 'c++': 'cpp'},
+ \ 'auto_export': 1}] 
+
+set selectmode=key
+"
+"
+"
+"Use TAB to complete when typing words, else inserts TABs as usual.
+"Uses dictionary and source files to find matching words to complete.
+
+"See help completion for source,
+""Note: usual completion is on <C-n> but more trouble to press all the time.
+"Never type the same word twice and maybe learn a new spellings!
+""Use the Linux dictionary when spelling is in doubt.
+"Window users can copy the file to their machine.
+"function! Tab_Or_Complete()
+"  if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
+"      return "\<C-N>"
+"	else
+"		return "\<Tab>"
+"  endif
+"endfunction
+":inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
+":set dictionary="/usr/share/dict/words"
+
+" evernote_vim
+"let g:evernote_vim_username = "xjjiang"
+"let g:evernote_vim_password = ""
+"let g:evernote_vim_ruby_dir = "/Users/xjiang/.vim/plungin/ruby"
+
+" Easymotion setup
+"let g:EasyMotion_leader_key = '<Leader>'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" shortcut to insert date and time
+imap xdate <c-r>=strftime("%Y/%m/%d %a")<cr>
+imap xtime <c-r>=strftime("%H:%M:%S")<cr>
+iab  xdate <c-r>=strftime("%m/%d/20%y %H:%M:%S")<cr>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set printoptions=paper:a4,header:0
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Operations such as yy, D, and P work with the system clipboard. No need to prefix them with "+ or "*.
+"set clipboard=unnamed
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""
+""Fix the numeric pad problem
+"if &term=="xterm" || &term=="xterm-color"
+"     set t_Co=256
+"     set t_Sb=^[4%dm
+"     set t_Sf=^[3%dm
+"     :imap <Esc>Oq 1
+"     :imap <Esc>Or 2
+"     :imap <Esc>Os 3
+"     :imap <Esc>Ot 4
+"     :imap <Esc>Ou 5
+"     :imap <Esc>Ov 6
+"     :imap <Esc>Ow 7
+"     :imap <Esc>Ox 8
+"     :imap <Esc>Oy 9
+"     :imap <Esc>Op 0
+"     :imap <Esc>On .
+"     :imap <Esc>OQ /
+"     :imap <Esc>OR *
+"     :imap <Esc>Ol +
+"     :imap <Esc>OS -
+"endif
+""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Maintainer: Dexter.Yy <dexter.yy at gmail.com>
+" Last Change: $LastChangedDate$ $Rev$
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" default
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"set nocompatible
+"set history=400
+"if has('mouse')
+"  set mouse=a
+"endif
+"set backspace=indent,eol,start
+"set ruler		" show the cursor position all the time
+"set showcmd		" display incomplete commands
+"set incsearch		" do incremental searching
+
+map Q gq
+inoremap <C-U> <C-G>u<C-U>
+
+"if &t_Co > 2 || has("gui_running")
+"  syntax on
+"  colorscheme wombat256mod
+"  set hlsearch
+"endif
+
+"if has("autocmd")
+"  filetype plugin indent on
+"  augroup vimrcEx
+"  au!
+"  autocmd FileType text setlocal textwidth=78
+"  autocmd BufReadPost *
+"    \ if line("'\"") > 1 && line("'\"") <= line("$") |
+"    \   exe "normal! g`\"" |
+"    \ endif
+"  augroup END
+"else
+"  set autoindent		" always set autoindenting on
+"endif " has("autocmd")
+"
+"if !exists(":DiffOrig")
+"  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
+"		  \ | wincmd p | diffthis
+"endif
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" General
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+"" Platform
+"function! MySys()
+"	if has("win32") || has("win64")
+"    	return "windows"
+"	elseif has("mac")
+"		return "mac"
+"	else
+"    	return "linux"
+"  	endif
+"endfunction
+"
+""if MySys() == 'mac' || MySys() == 'linux'
+"	"set shell=/bin/bash\ -l
+""endif
+"
+"set encoding=utf-8
+"set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+"
+"" Move Backup Files to ~/.vim/backups/
+"set backupdir=~/.vim/backups
+"set dir=~/.vim/backups
+"set nobackup 
+""set nowritebackup 
+"
+"set shiftwidth=4
+"set tabstop=4
+"set nowrap
+"set wildmenu
+"set matchpairs=(:),{:},[:],<:>
+"set whichwrap=b,s,<,>,[,]
+"set foldmethod=marker
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" interface
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+""if has("gui_running") || has("gui_macvim")
+"if  has("gui_macvim")
+"	set selectmode=key
+"	set background=light
+""	colorscheme wombat256mod
+"	colorscheme morning
+""	let g:colors_name="yytextmate"
+"else
+""	colorscheme slate
+"endif
+"
+"if MySys() == "mac"
+"	set guifont=Menlo:h14
+""	set guifontwide=Hei_Regular:h13
+"elseif MySys() == "linux"
+"	set guifont=Monospace
+"endif
+"
+"set anti
+"set linespace=2 
+"set number
+"set numberwidth=4
+"set equalalways
+"set guitablabel=%t
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" filetype and syntax
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+"let g:javascript_enable_domhtmlcss=1
+"let g:xml_use_xhtml = 1 "for xml.vim 
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" MacVim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+"if has("gui_macvim")
+"
+"	set columns=84
+"	set lines=40
+"	winpos 40 82 
+"
+"	let macvim_skip_cmd_opt_movement = 1
+"	let macvim_hig_shift_movement = 1
+"
+"	set transparency=2
+"	set guioptions-=T "egmrt
+"	"set guioptions+=b 
+"	
+"	"macm File.New\ Tab						key=<D-T>
+"	macm File.Save<Tab>:w					key=<D-s>
+"	macm File.Save\ As\.\.\.<Tab>:sav		key=<D-S>
+"	macm Edit.Undo<Tab>u					key=<D-z> action=undo:
+"	macm Edit.Redo<Tab>^R					key=<D-Z> action=redo:
+"	macm Edit.Cut<Tab>"+x					key=<D-x> action=cut:
+"	macm Edit.Copy<Tab>"+y					key=<D-c> action=copy:
+"	macm Edit.Paste<Tab>"+gP				key=<D-v> action=paste:
+"	macm Edit.Select\ All<Tab>ggVG			key=<D-A> action=selectAll:
+"	"macm Window.Toggle\ Full\ Screen\ Mode	key=<D-F>
+""	macm Window.Select\ Next\ Tab			key=<D-}>
+""	macm Window.Select\ Previous\ Tab		key=<D-{>
+"endif
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" autocmd
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+"autocmd! bufwritepost .vimrc source ~/.vimrc
+"autocmd! bufwritepost vimrc source ~/.vimrc
+"
+"let g:jslint_neverAutoRun=1
+"
+"autocmd BufRead * :lcd! %:p:h
+"
+"" filetype
+"autocmd BufNewFile,BufRead *.vm setlocal ft=html
+"
+"" language support
+"autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 textwidth=79
+"autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+"
+"" for AutoComplPop
+"autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
+"autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+"autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+"
+"
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" commands
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+"function! GetMySession(spath, ssname)
+"	if a:ssname == 0
+"		let a:sname = ""
+"	else
+"		let a:sname = "-".a:ssname
+"	endif
+"	execute "source $".a:spath."/session".a:sname.".vim"
+"	execute "rviminfo $".a:spath."/session".a:sname.".viminfo"
+"	execute "echo \"Load Success\: $".a:spath."/session".a:sname.".vim\""
+"endfunction
+"
+"function! SetMySession(spath, ssname)
+"	if a:ssname == 0
+"		let a:sname = ""
+"	else
+"		let a:sname = "-".a:ssname
+"	endif
+"	execute "cd $".a:spath
+"	execute "mksession! $".a:spath."/session".a:sname.".vim"
+"	execute "wviminfo! $".a:spath."/session".a:sname.".viminfo"
+"	execute "echo \"Save Success\: $".a:spath."/session".a:sname.".vim\""
+"endfunction
+"" load session from path
+"command! -nargs=+ LOAD call GetMySession(<f-args>) 
+"" save session
+"command! -nargs=+ SAVE call SetMySession(<f-args>) 
+"
+"
+"" for make & debug
+"
+"function! QFSwitch() " toggle quickfix window
+"	redir => ls_output
+"		execute ':silent! ls'
+"	redir END
+"
+"	let exists = match(ls_output, "[Quickfix List")
+"	if exists == -1
+"		execute ':copen'
+"	else
+"		execute ':cclose'
+"	endif
+"endfunction
+"
+"function! MyMake()
+"	exe 'call ' . b:myMake . '()'
+"endfunction
+"
+"function! MyLint()
+"	exe 'call ' . b:myLint . '()'
+"endfunction
+"
+"function! MyDebug()
+"	exe 'call ' . b:myDebug . '()'
+"endfunction
+"
+"function! MySetBreakPoint()
+"	exe 'call ' . b:mySetBreakPoint . '()'
+"endfunction
+"
+"function! MySetLog()
+"	exe 'call ' . b:mySetLog. '()'
+"endfunction
+"
+"function! MyRemoveBreakPoint()
+"	exe 'call ' . b:myRemoveBreakPoint . '()'
+"endfunction
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" map
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+"let mapleader="\\"
+"let g:mapleader="\\"
+"
+"map <silent> <leader>rc :tabe ~/.vim/vimrc<cr>
+"map <leader>q :q<cr>
+"map <leader>w :w<cr>
+"
+"map <F10> :.w !pbcopy<CR><CR>
+"map <F11> :r !pbpaste<CR>
+"
+"" for make & debug
+"noremap <F2> <ESC>:call MyLint()<CR>
+"noremap <F3> :call MyDebug()<CR>
+"noremap <F4> :call MyMake()<CR>
+"noremap <F5> <ESC>:call QFSwitch()<CR>
+"noremap <F6> :call MySetBreakPoint()<CR>
+"noremap <F7> :call MySetLog()<CR>
+"noremap <F8> :call MyRemoveBreakPoint()<CR>
+"
+"
+"nmap <tab> 		v>
+"nmap <s-tab> 	v<
+"vmap <tab> 		>gv 
+"vmap <s-tab> 	<gv
+"
+"" map cmd to ctrl
+"if MySys() == "mac"
+"	map <D-y> <C-y>
+"	map <D-e> <C-e>
+"	map <D-f> <C-f>
+"	map <D-b> <C-b>
+"	map <D-u> <C-u>
+"	map <D-d> <C-d>
+"	map <D-w> <C-w>
+"	map <D-r> <C-r>
+"	map <D-o> <C-o>
+"	map <D-i> <C-i>
+"	map <D-g> <C-g>
+"	map <D-a> <C-a>
+"	map <D-]> <C-]>
+"	cmap <D-d> <C-d>
+"	imap <D-e> <C-e>
+"	imap <D-y> <C-y>
+"endif
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" plugin setting
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+"" bufExplorer setting
+"let g:bufExplorerSortBy='mru'
+"let g:bufExplorerSplitRight=0        " Split left.
+"let g:bufExplorerSplitVertical=1     " Split vertically.
+"let g:bufExplorerSplitVertSize = 30  " Split width
+"let g:bufExplorerUseCurrentWindow=1  " Open in new window.
+"let g:bufExplorerMaxHeight=25
+"let g:bufExplorerResize=1
+""autocmd BufWinEnter \[Buf\ List\] setl nonumber
+"
+"" 默认键映射 <leader>bv :VSBufExplorer
+""
+"
+"" tasklist
+"nmap <silent> <leader>tl :TaskList<CR>
+"
+"
+"" taglists setting
+"nmap <silent> <leader>tg :TlistToggle<CR>
+""let Tlist_Use_SingleClick=1
+""Tlist_Process_File_Always=1
+"let Tlist_File_Fold_Auto_Close=1
+"let Tlist_Exit_OnlyWindow = 1
+"let Tlist_Show_Menu=1
+"let Tlist_GainFocus_On_ToggleOpen=1
+"let Tlist_Close_OnSelect=1
+"let Tlist_Compact_Format=1
+"let Tlist_Use_Right_Window = 1
+"let Tlist_WinWidth = 30
+"let Tlist_Inc_Winwidth = 0
+"
+"let g:tlist_javascript_settings = 'javascript;f:function;c:class;o:object;m:method;s:string;a:array;n:constant'
+"
+"" winManager setting
+""let g:winManagerWindowLayout="BufExplorer,FileExplorer|taglist" 
+""let g:winManagerWidth = 30
+""let g:defaultExplorer = 0
+""nmap <silent> <leader>wm :WMToggle<cr> 
+"
+"" netrw setting
+"let g:netrw_winsize = 20
+""nmap <silent> <leader>fe :Sexplore!<cr>
+"
+"" NERDTree setting
+"nmap <silent> <leader>nt :NERDTree<cr>
+"
+"" Most Recently Used (MRU)
+"nmap <silent> <leader>r :MRU<cr>
+"
+"" FuzzyFinder setting
+""nmap <leader>fb :FuzzyFinderBuffer<cr>
+""nmap <leader>ff	:FuzzyFinderFile<cr>
+""nmap <leader>fd	:FuzzyFinderDir<cr>
+""nmap <leader>fe	:FuzzyFinderMruFile<cr>
+""nmap <leader>fc	:FuzzyFinderMruCmd<cr>
+""nmap <leader>fm	:FuzzyFinderBookmark<cr>
+"""nmap <leader>ft	:FuzzyFinderTag<cr>
+""nmap <leader>ft	:FuzzyFinderTaggedFile<cr>
+"nmap <leader>fb :FufBuffer<cr>
+"nmap <leader>ff :FufFile<cr>
+"nmap <leader>fd :FufDir<cr>
+"nmap <leader>fa :FufBookmark<cr>
+"
+"
+"
+""let NERDCreateDefaultMappings=0
+"let NERDShutUp=1
+"let g:NERDCommenterLeader="<leader>n" " change NERD_commenter.vim
+"let VCSCommandSVKExec='disabled no such executable'
+"
+"set grepprg=grep\ -nH\ $*
+"let g:tex_flavor='latex'
+
+" Use neocomplcache.
+"let g:NeoComplCache_EnableAtStartup = 1
+"" Use smartcase.
+"let g:NeoComplCache_SmartCase = 1
+"" Use camel case completion.
+"let g:NeoComplCache_EnableCamelCaseCompletion = 1
+"" Use underbar completion.
+"let g:NeoComplCache_EnableUnderbarCompletion = 1 
+
+
